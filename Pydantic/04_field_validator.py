@@ -57,3 +57,42 @@ patient1 = Patient(**patient_info)
 
 insert_patient_data(patient1)
 # update_patient_data(patient1)
+
+# ============================================================
+# WHY FIELD VALIDATORS ARE NEEDED
+# ============================================================
+# Field() works for simple rules,
+# but business logic is often complex.
+#
+# Example in this file:
+# - Email must belong to specific domains only
+#
+# This logic CANNOT be written using Field()
+# So we use @field_validator
+#
+# email_validator():
+# - Extracts domain from email
+# - Checks against allowed domains
+#
+# name_validator():
+# - Converts name to uppercase
+# - This is DATA NORMALIZATION
+#
+# IMPORTANT IDEA:
+# Validators can:
+# - Reject data
+# - Modify data
+#
+# age_validator():
+# - Runs AFTER type conversion
+# - Ensures logical correctness
+#
+# SIMPLE WAY TO REMEMBER:
+# Field()        → Simple rules
+# field_validator → Smart rules
+#
+# REAL LIFE EXAMPLE:
+# - Password strength
+# - Username formatting
+# - Company-specific constraints
+# ============================================================

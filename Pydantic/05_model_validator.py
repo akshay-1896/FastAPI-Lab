@@ -36,3 +36,31 @@ patient1 = Patient(**patient_info)
 
 insert_patient_data(patient1)
 # update_patient_data(patient1)
+
+# ============================================================
+# WHY MODEL VALIDATORS EXIST
+# ============================================================
+# Sometimes, validation depends on MULTIPLE fields.
+#
+# Example in this file:
+# - If age > 60
+# - emergency contact MUST exist
+#
+# Field validators cannot see other fields reliably.
+# So we use @model_validator
+#
+# model_validator(mode='after'):
+# - Runs AFTER all fields are validated
+# - Has access to FULL model
+#
+# VERY IMPORTANT CONCEPT:
+# "Individual fields may be valid,
+#  but the object as a whole may be invalid."
+#
+# REAL-WORLD EXAMPLES:
+# - If payment_method = "card", card_number is required
+# - If user is minor, guardian info is required
+#
+# THINK OF IT AS:
+# "Final approval before object is accepted"
+# ============================================================

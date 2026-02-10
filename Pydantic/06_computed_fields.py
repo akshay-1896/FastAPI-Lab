@@ -38,3 +38,30 @@ patient1 = Patient(**patient_info)
 
 # insert_patient_data(patient1)
 update_patient_data(patient1)
+
+# ============================================================
+# WHAT IS A COMPUTED FIELD?
+# ============================================================
+# Some values should be CALCULATED,
+# not entered by the user.
+#
+# Example:
+# BMI should NOT be provided manually.
+# It depends on height and weight.
+#
+# @computed_field:
+# - Creates a read-only field
+# - Automatically recalculates when needed
+#
+# bmi property:
+# - Uses height and weight
+# - Always stays correct
+#
+# WHY THIS IS IMPORTANT:
+# - Avoids redundant data
+# - Avoids inconsistent values
+#
+# THINK THIS WAY:
+# "If a value can be derived,
+#  never store it directly."
+# ============================================================

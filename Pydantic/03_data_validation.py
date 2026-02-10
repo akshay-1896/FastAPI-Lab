@@ -33,3 +33,41 @@ patient1 = Patient(**patient_info)
 
 insert_patient_data(patient1)
 # update_patient_data(patient1)
+
+# ============================================================
+# WHAT THIS FILE BUILDS ON
+# ============================================================
+# In the previous file, we only checked TYPES.
+# But real-world data needs MORE rules.
+#
+# Example:
+# - Age should be > 0
+# - Email should be valid
+# - URL should actually look like a URL
+#
+# Field() helps us ADD RULES to fields.
+#
+# Example:
+# age: int = Field(gt=0, lt=120)
+# → age must be between 1 and 119
+#
+# SPECIAL TYPES:
+# - EmailStr → ensures proper email format
+# - AnyUrl   → ensures valid URL
+#
+# Annotated[...] is used to:
+# - Keep type information
+# - Attach Field rules cleanly
+#
+# STRICT MODE:
+# weight: Annotated[float, Field(strict=True)]
+# → "55.2" (string) will be REJECTED
+#
+# WHY THIS MATTERS:
+# - Prevents bad data early
+# - Avoids silent bugs
+#
+# THINK LIKE THIS:
+# "Type says WHAT data is.
+#  Field says HOW GOOD that data must be."
+# ============================================================
