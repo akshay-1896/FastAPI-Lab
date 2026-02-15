@@ -33,8 +33,8 @@ if st.button("Predict Premium Category"):
         response = requests.post(API_URL, json=input_data)
         result = response.json()
 
-        if response.status_code == 200 and "predicted_category" in result:
-            prediction = result["predicted_category"]
+        if response.status_code == 200 and "response" in result:
+            prediction = result["response"]
             st.success(f"Predicted Insurance Premium Category: {prediction}")
             st.write("🔍 Confidence:", result["confidence"])
             st.write("📊 Class Probabilities:")
