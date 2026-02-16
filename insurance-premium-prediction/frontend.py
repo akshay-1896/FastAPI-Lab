@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://localhost:8000/predict"  # For local run
+API_URL = "http://15.207.89.204:8000/predict"  # For local run
 # API_URL = "http://backend:8000/predict"  # For Docker Compose for internal network connection
 
 st.title("Insurance Premium Category Predictor")
